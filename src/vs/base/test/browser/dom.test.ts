@@ -7,10 +7,15 @@ import * as assert from 'assert';
 import { $, asCssValueWithDefault, h, multibyteAwareBtoa } from 'vs/base/browser/dom';
 
 suite('dom', () => {
-	test('hasClass', () => {
+	test('hasClass', async function () {
+		this.timeout(30_000);
 
 		const element = document.createElement('div');
 		element.className = 'foobar boo far';
+		await new Promise(r => setTimeout(r, 2000));
+		console.log('hello');
+		await new Promise(r => setTimeout(r, 2000));
+		console.log('world');
 
 		assert(element.classList.contains('foobar'));
 		assert(element.classList.contains('boo'));
@@ -19,6 +24,9 @@ suite('dom', () => {
 		assert(!element.classList.contains('foo'));
 		assert(!element.classList.contains(''));
 
+		// assert.deepStrictEqual('foo', 'bar');
+
+		// throw new Error('some error');
 
 	});
 
