@@ -66,6 +66,7 @@ export interface IChatWidget {
 	getSlashCommands(): Promise<ISlashCommand[] | undefined>;
 	getCodeBlockInfoForEditor(uri: URI): IChatCodeBlockInfo | undefined;
 	getCodeBlockInfosForResponse(response: IChatResponseViewModel): IChatCodeBlockInfo[];
+	clear(): void;
 }
 
 export interface IChatViewPane {
